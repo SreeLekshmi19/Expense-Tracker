@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <h1>
+                <i class="fa-solid fa-wallet"></i>
+                Expense Tracker
+            </h1>
+
+            <button id="themeBtn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+        </header>
+
+
+        <section class="summary">
+
+            <div class="card balance">
+                <h3>Total Balance</h3>
+                <h2 id="balance">$0.00</h2>
+            </div>
+
+            <div class="card income">
+                <h3>Total Income</h3>
+                <h2 id="income">$0.00</h2>
+            </div>
+
+            <div class="card expense">
+                <h3>Total Expense</h3>
+                <h2 id="expense">$0.00</h2>
+            </div>
+
+        </section>
+
+
+        <section class="form-section">
+
+            <h2>Add Transaction</h2>
+
+            <form id="expenseForm">
+
+                <input type="text" id="title" placeholder="Expense Title" required>
+
+                <input type="number" id="amount" placeholder="Amount" required>
+
+                <select id="category">
+
+                    <option>Food</option>
+                    <option>Shopping</option>
+                    <option>Travel</option>
+                    <option>Bills</option>
+                    <option>Salary</option>
+                    <option>Entertainment</option>
+                    <option>Health</option>
+                    <option>Other</option>
+
+                </select>
+
+                <select id="type">
+
+                    <option value="income">
+                        Income
+                    </option>
+
+                    <option value="expense">
+                        Expense
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Add Transaction
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="controls">
+
+            <input type="text" id="search" placeholder="Search transaction...">
+
+            <select id="filter">
+
+                <option value="all">
+                    All
+                </option>
+
+                <option value="income">
+                    Income
+                </option>
+
+                <option value="expense">
+                    Expense
+                </option>
+
+            </select>
+
+            <button id="exportCSV">
+                Export CSV
+            </button>
+
+        </section>
+
+
+        <section class="chart-container">
+
+            <canvas id="expenseChart"></canvas>
+
+        </section>
+
+
+        <section class="history">
+
+            <h2>Transaction History</h2>
+
+            <ul id="transactionList">
+
+            </ul>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

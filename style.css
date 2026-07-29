@@ -1,0 +1,873 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f3f5f9;
+    color: #222;
+    min-height: 100vh;
+    transition: .3s;
+}
+
+
+/* ==========================
+      ROOT COLORS
+========================== */
+
+:root {
+
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+
+    --income: #22c55e;
+    --expense: #ef4444;
+
+    --white: #ffffff;
+    --dark: #18181b;
+
+    --gray: #666;
+    --light: #f5f7fb;
+
+    --shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+    --radius: 18px;
+
+}
+
+
+/* ==========================
+      DARK MODE
+========================== */
+
+body.dark {
+
+    background: #111827;
+    color: #f4f4f4;
+
+}
+
+body.dark .card,
+body.dark .form-section,
+body.dark .controls,
+body.dark .history,
+body.dark .chart-container {
+
+    background: #1f2937;
+    color: white;
+
+}
+
+body.dark input,
+body.dark select {
+
+    background: #374151;
+    color: white;
+    border: 1px solid #555;
+
+}
+
+body.dark input::placeholder {
+    color: #ccc;
+}
+
+body.dark li {
+    background: #374151;
+}
+
+
+/* ==========================
+      CONTAINER
+========================== */
+
+.container {
+
+    width: 95%;
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+}
+
+
+/* ==========================
+      HEADER
+========================== */
+
+header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 35px;
+
+}
+
+header h1 {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--primary);
+
+    font-size: 2rem;
+
+}
+
+header button {
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 20px;
+
+    transition: .3s;
+
+}
+
+header button:hover {
+
+    transform: rotate(20deg) scale(1.08);
+
+}
+
+
+/* ==========================
+      SUMMARY
+========================== */
+
+.summary {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.card {
+
+    background: white;
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+
+    transition: .3s;
+
+}
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+}
+
+.card h3 {
+
+    margin-bottom: 15px;
+
+    color: #666;
+
+    font-weight: 600;
+
+}
+
+.card h2 {
+
+    font-size: 2rem;
+
+}
+
+.balance {
+
+    border-left: 7px solid var(--primary);
+
+}
+
+.income {
+
+    border-left: 7px solid var(--income);
+
+}
+
+.expense {
+
+    border-left: 7px solid var(--expense);
+
+}
+
+
+/* ==========================
+      FORM SECTION
+========================== */
+
+.form-section {
+
+    background: white;
+
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 30px;
+
+}
+
+.form-section h2 {
+
+    margin-bottom: 25px;
+
+    color: var(--primary);
+
+}
+
+form {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+
+}
+
+
+/* ==========================
+      INPUTS
+========================== */
+
+input,
+select {
+
+    padding: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: .3s;
+
+}
+
+input:focus,
+select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, .15);
+
+}
+
+
+/* ==========================
+      BUTTONS
+========================== */
+
+button {
+
+    cursor: pointer;
+
+}
+
+form button {
+
+    background: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+
+    transition: .3s;
+
+}
+
+form button:hover {
+
+    background: #4338ca;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ==========================
+      CONTROLS
+========================== */
+
+.controls {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 35px;
+
+}
+
+.controls input {
+
+    flex: 1;
+
+    min-width: 220px;
+
+}
+
+.controls select {
+
+    min-width: 180px;
+
+}
+
+#exportCSV {
+
+    background: var(--income);
+
+    color: white;
+
+    border: none;
+
+    padding: 15px 24px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    transition: .3s;
+
+}
+
+#exportCSV:hover {
+
+    background: #16a34a;
+
+    transform: translateY(-2px);
+
+}
+
+/* ==========================
+      CHART CONTAINER
+========================== */
+
+.chart-container {
+
+    background: var(--white);
+
+    padding: 30px;
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 35px;
+
+    position: relative;
+
+    min-height: 420px;
+
+}
+
+.chart-container canvas {
+
+    width: 100% !important;
+
+    max-height: 350px;
+
+}
+
+
+/* ==========================
+      HISTORY SECTION
+========================== */
+
+.history {
+
+    background: var(--white);
+
+    padding: 30px;
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+}
+
+.history h2 {
+
+    color: var(--primary);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* ==========================
+      TRANSACTION LIST
+========================== */
+
+#transactionList {
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+/* ==========================
+      TRANSACTION ITEM
+========================== */
+
+#transactionList li {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #fafafa;
+
+    padding: 18px 22px;
+
+    border-radius: 14px;
+
+    transition: .3s;
+
+    border-left: 6px solid transparent;
+
+}
+
+#transactionList li:hover {
+
+    transform: translateX(6px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+
+/* ==========================
+      LEFT CONTENT
+========================== */
+
+.transaction-left {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+.transaction-title {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+}
+
+.transaction-category {
+
+    font-size: 14px;
+
+    color: #777;
+
+}
+
+
+/* ==========================
+      RIGHT CONTENT
+========================== */
+
+.transaction-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+/* ==========================
+      AMOUNT
+========================== */
+
+.amount {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+}
+
+.amount.income {
+
+    color: var(--income);
+
+}
+
+.amount.expense {
+
+    color: var(--expense);
+
+}
+
+
+/* ==========================
+      BADGES
+========================== */
+
+.badge {
+
+    padding: 6px 12px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.badge.income {
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+}
+
+.badge.expense {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+}
+
+
+/* ==========================
+      ACTION BUTTONS
+========================== */
+
+.actions {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+.edit-btn {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #3b82f6;
+
+    color: white;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+}
+
+.edit-btn:hover {
+
+    transform: scale(1.12);
+
+    background: #2563eb;
+
+}
+
+.delete-btn {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--expense);
+
+    color: white;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+}
+
+.delete-btn:hover {
+
+    transform: scale(1.12);
+
+    background: #dc2626;
+
+}
+
+
+/* ==========================
+      EMPTY STATE
+========================== */
+
+.empty {
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: #888;
+
+    font-size: 18px;
+
+}
+
+.empty i {
+
+    font-size: 70px;
+
+    color: #d1d5db;
+
+    margin-bottom: 20px;
+
+    display: block;
+
+}
+
+
+/* ==========================
+      SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #ececec;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: var(--primary);
+
+    border-radius: 20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #4338ca;
+
+}
+
+
+/* ==========================
+      ANIMATIONS
+========================== */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.card,
+.form-section,
+.controls,
+.chart-container,
+.history {
+
+    animation: fadeIn .6s ease;
+
+}
+
+#transactionList li {
+
+    animation: fadeIn .35s ease;
+
+}
+
+
+/* ==========================
+      TABLET
+========================== */
+
+@media(max-width:900px) {
+
+    .summary {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .controls {
+
+        flex-direction: column;
+
+    }
+
+    .transaction-right {
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+
+    }
+
+}
+
+
+/* ==========================
+      MOBILE
+========================== */
+
+@media(max-width:600px) {
+
+    .container {
+
+        width: 92%;
+
+        margin: 20px auto;
+
+    }
+
+    header {
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+
+    }
+
+    header h1 {
+
+        font-size: 1.8rem;
+
+    }
+
+    form {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    #transactionList li {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+    }
+
+    .transaction-right {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+    }
+
+    .chart-container {
+
+        padding: 18px;
+
+    }
+
+    .history {
+
+        padding: 20px;
+
+    }
+
+}
